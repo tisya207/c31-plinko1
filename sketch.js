@@ -9,13 +9,13 @@ var box1,box2,box3,box4;
 var box5,box6,box7;
 var backgroundImg,platform;
 
-var divisionHeight;
+var divisionHeight = 300;
 //arrays
 var divisions = []; 
 var particles = []; 
 var plinkos = []; 
 
-
+var particle;
 function preload() {
     
 }
@@ -30,15 +30,19 @@ function setup(){
     for(var k = 0; k<=width; k = k +80 ){
         divisions.push(new Divisions( k, height-divisionHeight/2,10, divisionHeight))
     }
-    /*box1 = new Divisions(10,450,10,350);
-    box2 = new Divisions(70,450,10,350);
-    box3 = new Divisions(150,450,10,350);
-    box4 = new Divisions(230,450,10,350);
-    box5 = new Divisions(310,450,10,350);
-    box6 = new Divisions(390,450,10,350);
-    box7 = new Divisions(470,450,10,350);
-    */
-
+    for(var i = 40; i<=width; i = i +50 ){
+        plinkos.push(new Plinko(i,75))
+    }
+    for(var i = 40; i<=width; i = i +50 ){
+        plinkos.push(new Plinko(i,135))
+    }
+    for(var i = 40; i<=width; i = i +50 ){
+        plinkos.push(new Plinko(i,195))
+    }
+    for(var i = 40; i<=width; i = i +50 ){
+        plinkos.push(new Plinko(i,255))
+    }
+ 
 }
 
 function draw(){
@@ -46,20 +50,34 @@ function draw(){
     Engine.update(engine);
     strokeWeight(2);
   
-
-  /*  box1.display();
-    box2.display();
-    box3.display();
-    box4.display();
-    box5.display();
-    box6.display();
-    box7.display();*/
-   
-  
     ground.display();
+    if(frameCount % 60 === 0){
+       // particles.push(new Particle(random(width/2-30,width/2+30,10,10)))
+       console.log("123")
+       particle =new Particle(random(width/2-30,width/2+30),10)
+       particle.display();
 
-    for(var k = 0; k<=width; k = k +80 ){
-        divisions.push(new Divisions( k, height-divisionHeight/2,10, divisionHeight))
+    }
+
+    for(var k = 0; k< divisions.length; k++ ){
+        divisions[k].display(); 
+    
+    }
+    for(var i = 0; i< plinkos.length; i++ ){
+        plinkos[i].display(); 
+    
+    }
+    for(var i = 0; i< plinkos.length; i++ ){
+        plinkos[i].display(); 
+    
+    }
+    for(var i = 0; i< plinkos.length; i++ ){
+        plinkos[i].display(); 
+    
+    }
+    for(var i = 0; i< plinkos.length; i++ ){
+        plinkos[i].display(); 
+    
     }
 
 }

@@ -1,17 +1,17 @@
 class Plinko {
-    constructor(x,y,width,height) {
+    constructor(x,y) {
       var options = {
           isStatic: true
       }
-      this.body = Bodies.rectangle(x,y,width,height,options);
-      this.width = width;
-      this.height = height;
+      this.body = Bodies.circle(x,y,10,options)
+      this.radius = 10;
+     
       World.add(world, this.body);
     }
     display(){
       var pos =this.body.position;
-      elipseMode(CENTER);
-      fill("brown");
-      elipse(pos.x, pos.y, this.width, this.height);
+      ellipseMode(CENTER);
+      fill("pink");
+      ellipse(pos.x, pos.y, this.radius,this.radius);
     }
   };
